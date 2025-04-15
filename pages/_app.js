@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
       </div>
       <div className="col-span-5 md:col-span-4">
         <Navbar />
-        <div className="bg-pink-100 w-full overflow-auto p-6 h-[calc(100vh-2.5rem)]  md:h-[calc(100vh-3rem)]">
+        <div className=" w-full overflow-auto p-6 h-[calc(100vh-2.5rem)]  md:h-[calc(100vh-3rem)]">
           <Component {...pageProps} />
         </div>
       </div>
