@@ -1,10 +1,13 @@
 import Navbar from "@/components/modules/navbar/navbar";
+import Sidebar from "@/components/modules/sidebar/sidebar";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
     <div className="grid grid-cols-5 ">
-      <div className="hidden md:flex md:col-span-1 h-screen border-l border-l-gray-400 p-6"></div>
+      <div className="hidden md:flex md:col-span-1 h-screen border-l border-l-gray-400 p-6">
+        <Sidebar />
+      </div>
       <div className="col-span-5 md:col-span-4">
         <Navbar />
         <div className="bg-pink-100 w-full overflow-auto p-6 h-[calc(100vh-2.5rem)]  md:h-[calc(100vh-3rem)]">
