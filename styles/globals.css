@@ -11,6 +11,7 @@
 body{
   direction: rtl;
   font-family: "IranSans";
+  background-color: oklch(92% 0.004 286.32);
 }
 .dark body{
   color: white;
