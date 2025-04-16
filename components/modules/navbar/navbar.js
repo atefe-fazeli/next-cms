@@ -23,7 +23,7 @@ export default function Navbar() {
         </button>
         <div className="hidden md:flex items-center justify-between rounded-md border border-gray-400 px-5 py-1">
           <input
-            className=" text-sm focus:border-none focus:outline-none dark:text-white"
+            className=" text-sm focus:border-none focus:outline-none trxt-gray-700 dark:text-white"
             placeholder="جست و جو کنید..."
           />
           <LiaSearchSolid />
