@@ -1,4 +1,18 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@font-face {
+  font-family: "IranSans";
+  src: local("iranSans"),
+    url("/assets/fonts/iranSans/woff2/IRANSansX-Regular.woff2")
+      format("woff2");
+}
 body{
   direction: rtl;
+  font-family: "IranSans";
+}
+.dark body{
+  color: white;
+  background-color: oklch(21% 0.006 285.885);
 }

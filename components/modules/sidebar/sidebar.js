@@ -7,7 +7,7 @@ export default function Sidebar() {
     <div className="flex flex-col w-full gap-3 md:gap-5">
       <div className="flex items-center gap-3">
         <IoLogoVue className="w-10 h-10 text-teal-500"/>
-        <h1 className="font-bold text-lg md:text-2xl text-gray-700 ">سبزلرن </h1>
+        <h1 className="font-bold text-lg md:text-2xl  dark:text-gray-300 text-gray-700 font-IranSans">سبزلرن </h1>
       </div>
       <div className="flex flex-col gap-4 border-b border-b-gray-400 pb-3">
         <Link href="/">صفحه اصلی</Link>
