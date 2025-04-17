@@ -6,7 +6,7 @@ import ConnectToDB from "@/utils/db";
 export default function Home({ data }) {
   return (
     <div className="flex flex-col gap-3 md:gap-5">
-     <Topbar />
+      <Topbar />
       <div className="flex flex-col gap-2 md:gap-3">
         {data.map((item) => (
           <CourseItem key={item.id} />
@@ -16,18 +16,17 @@ export default function Home({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     await ConnectToDB();
-    const courses = await CoursesModel.find().lean();
-    console.log("Courses fetched:", courses);
+    const courses = await CoursesModel.find();
     return {
       props: {
         data: JSON.parse(JSON.stringify(courses)),
       },
+      revalidate: 10 * 60 * 60,
     };
   } catch (error) {
-    console.error("Error in getServerSideProps:", error);
     return {
       props: {
         data: [],
