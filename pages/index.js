@@ -1,15 +1,37 @@
 import CourseItem from "@/components/templates/index/courseItem";
+import Topbar from "@/components/templates/index/topbar";
+import CoursesModel from "@/models/courses";
+import ConnectToDB from "@/utils/db";
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div className="flex flex-col gap-3 md:gap-5">
-      <div className="flex items-center justify-between w-full md:w-10/12">
-        <h1 className="font-bold text-lg md:text-2xl text-gray-700 dark:text-gray-300">دوره ها</h1>
-        <button className="px-10 py-2 rounded-md bg-green-400 ">افزودن دوره </button>
-        
+     <Topbar />
+      <div className="flex flex-col gap-2 md:gap-3">
+        {data.map((item) => (
+          <CourseItem key={item.id} />
+        ))}
       </div>
-      <div className="flex flex-col gap-2 md:gap-3"></div>
-      <CourseItem/>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    await ConnectToDB();
+    const courses = await CoursesModel.find().lean();
+    console.log("Courses fetched:", courses);
+    return {
+      props: {
+        data: JSON.parse(JSON.stringify(courses)),
+      },
+    };
+  } catch (error) {
+    console.error("Error in getServerSideProps:", error);
+    return {
+      props: {
+        data: [],
+      },
+    };
+  }
 }
