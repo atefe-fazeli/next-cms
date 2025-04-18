@@ -9,7 +9,7 @@ export default function Home({ data }) {
       <Topbar />
       <div className="flex flex-col gap-2 md:gap-3">
         {data.map((item) => (
-          <CourseItem key={item.id} />
+          <CourseItem key={item.id} title={item.title} />
         ))}
       </div>
     </div>

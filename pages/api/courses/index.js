@@ -1,6 +1,7 @@
 import ConnectToDB from "@/utils/db";
 import CoursesModel from "@/models/courses";
 async function Handler(req, res) {
+   ConnectToDB();
   switch (req.method) {
     case "GET":
       const courses = await CoursesModel.find();
@@ -9,6 +10,7 @@ async function Handler(req, res) {
     case "POST":
       try {
         const { title } = req.body;
+        console.log("post try",title)
         if (!title.trim()) {
           return res.status(422).json({ message: "course is not valid" });
         } else {
@@ -18,7 +20,7 @@ async function Handler(req, res) {
             .json({ message: "course created succesfully", course });
         }
       } catch (error) {
-        return res.status(500).json({ message: "err" });
+        return res.status(500).json({ message: "err 500 is here",error });
       }
 
     case "PUT":

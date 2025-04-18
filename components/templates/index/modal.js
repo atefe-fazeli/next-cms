@@ -6,11 +6,6 @@ import { FileUploader } from "react-drag-drop-files";
 import ConnectToDB from "@/utils/db";
 import axios from "axios";
 
-
-
-
-
-
 export default function Modal({ modalHandler }) {
   const fileTypes = ["PDF"];
   const [course, setCourse] = useState({
@@ -19,7 +14,7 @@ export default function Modal({ modalHandler }) {
     teacher: "",
     file: [],
   });
- 
+
   function inputHandler(e) {
     setCourse({ ...course, [e.target.name]: e.target.value });
   }
@@ -28,12 +23,12 @@ export default function Modal({ modalHandler }) {
     setCourse({ ...course, file: file });
   }
   async function submitHandler() {
-    console.log(course.name)
+    console.log(course.name);
     try {
-      const response = await axios.post(
+      await axios.post(
         "http://localhost:3000/api/courses",
         {
-          title:JSON.stringify(course.name),
+          title: JSON.stringify(course.name),
         },
         {
           headers: {
@@ -42,9 +37,12 @@ export default function Modal({ modalHandler }) {
         }
       );
     } catch (error) {
-      console.error("خطا:", error.response ? error.response.data : error.message);
+      console.error(
+        "خطا:",
+        error.response ? error.response.data : error.message
+      );
     }
-    modalHandler()
+    modalHandler();
   }
   return (
     <div
