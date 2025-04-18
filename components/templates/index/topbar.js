@@ -6,7 +6,6 @@ import { FiEdit, FiTrash } from "react-icons/fi";
 export default function Topbar() {
     const [showModal,setShowModal]=useState(false)
     function modalHandler(){
-        console.log("klik shod")
         setShowModal(!showModal)
     }
   return (

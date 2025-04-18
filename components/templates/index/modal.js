@@ -5,6 +5,7 @@ import { LuUpload } from "react-icons/lu";
 import { FileUploader } from "react-drag-drop-files";
 import ConnectToDB from "@/utils/db";
 import axios from "axios";
+import { IoIosClose } from "react-icons/io";
 
 export default function Modal({ modalHandler }) {
   const fileTypes = ["PDF"];
@@ -19,16 +20,14 @@ export default function Modal({ modalHandler }) {
     setCourse({ ...course, [e.target.name]: e.target.value });
   }
   function fileHandler(file) {
-    console.log(file, "file");
     setCourse({ ...course, file: file });
   }
   async function submitHandler() {
-    console.log(course.name);
     try {
       await axios.post(
         "http://localhost:3000/api/courses",
         {
-          title: JSON.stringify(course.name),
+          title: course.name,
         },
         {
           headers: {
@@ -61,12 +60,17 @@ export default function Modal({ modalHandler }) {
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
             <div className="bg-white p-3 md:p-5 flex flex-col  items-center gap-2 ">
-              <h3
-                className="text-base font-semibold text-gray-900"
-                id="modal-title"
-              >
-                اضافه کردن دوره جدید
-              </h3>
+              <div className="flex justify-between items-center w-full">
+                <h3
+                  className="text-base font-semibold text-gray-900"
+                  id="modal-title"
+                >
+                  اضافه کردن دوره جدید
+                </h3>
+                <button onClick={modalHandler}>
+                  <IoIosClose />
+                </button>
+              </div>
               <div
                 className="
                    flex flex-col gap-2 w-full"

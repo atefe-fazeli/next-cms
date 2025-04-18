@@ -17,3 +17,6 @@ body{
   color: white;
   background-color: oklch(21% 0.006 285.885);
 }
+button{
+cursor: pointer;
+}

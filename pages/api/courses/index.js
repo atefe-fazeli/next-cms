@@ -10,7 +10,6 @@ async function Handler(req, res) {
     case "POST":
       try {
         const { title } = req.body;
-        console.log("post try",title)
         if (!title.trim()) {
           return res.status(422).json({ message: "course is not valid" });
         } else {
