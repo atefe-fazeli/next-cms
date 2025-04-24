@@ -3,7 +3,6 @@ import Sidebar from "@/components/modules/sidebar/sidebar";
 import { ThemeProvider } from "@/context/themeContext";
 import "@/styles/globals.css";
 export default function App({ Component, pageProps }) {
-  // here is main conflict 
   return (
     <ThemeProvider>
       <div className="grid grid-cols-5 ">

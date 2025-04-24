@@ -5,7 +5,7 @@ import ConnectToDB from "@/utils/db";
 import axios from "axios";
 
 export default function Home({ data }) {
-  // here 
+// create conflict in home page at main
   async function editCourseHandler(id, title) {
     console.log("id and updatedData", id,title);
     try {
