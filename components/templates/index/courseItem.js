@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import { IoIosClose } from "react-icons/io";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function CourseItem({
   course,
@@ -10,6 +11,7 @@ export default function CourseItem({
 }) {
   const [updatedData, setUpdatedData] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const notify = () => toast("Here is your toast.");
   function setUpdatedDataHandler(e) {
     setUpdatedData(e.target.value);
   }
@@ -35,7 +37,10 @@ export default function CourseItem({
             </button>
             <button
               className="bg-rose-800 px-5 py-3 rounded-md md:min-w-28"
-              onClick={() => deleteCourseHandler(course._id)}
+              onClick={function () {
+                deleteCourseHandler(course._id);
+                notify()
+              }}
             >
               <span className="text-white hidden md:flex"> حذف</span>
               <FiTrash className="text-white flex md:hidden" />
