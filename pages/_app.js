@@ -2,8 +2,8 @@ import Navbar from "@/components/modules/navbar/navbar";
 import Sidebar from "@/components/modules/sidebar/sidebar";
 import { ThemeProvider } from "@/context/themeContext";
 import "@/styles/globals.css";
-// learn to handle conflict 23
 export default function App({ Component, pageProps }) {
+  // here is main conflict 
   return (
     <ThemeProvider>
       <div className="grid grid-cols-5 ">
