@@ -5,7 +5,7 @@ import ConnectToDB from "@/utils/db";
 import axios from "axios";
 
 export default function Home({ data }) {
-  // changes are not real time
+// just for testing conflict
   async function editCourseHandler(id, title) {
     console.log("id and updatedData", id,title);
     try {
