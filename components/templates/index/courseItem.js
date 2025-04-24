@@ -11,7 +11,7 @@ export default function CourseItem({
 }) {
   const [updatedData, setUpdatedData] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const notify = () => toast("Here is your toast.");
+  const notify = () => toast.success('Successfully deleted!');
   function setUpdatedDataHandler(e) {
     setUpdatedData(e.target.value);
   }
@@ -21,6 +21,11 @@ export default function CourseItem({
   return (
     <>
       {" "}
+      <Toaster
+        reverseOrder={false}
+        position='top-center'
+       
+      />
       <div className="flex items-center w-full md:w-10/12 shadow-2xl">
         <div className="w-1/6">
           <Image />
